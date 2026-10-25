@@ -16,9 +16,10 @@
     <button data-ws="2">3 projects</button>
     <button data-ws="3">4 youtube</button>
   </nav>
+  <button id="mode" title="Layout: tiled. Click for floating (f)">[]=</button>
+  <span id="title"></span>
   <div id="search"><input id="q" type="text" placeholder="search…  ( / )" aria-label="Search portfolio" autocomplete="off"><ul id="res" hidden></ul></div>
-  <button id="mode" title="Toggle floating windows (f)">floating: off</button>
-  <span id="hint">1–4 switch · j/k focus · h/l/i/m resize · f float</span>
+  <span id="hint">1–4 switch · j/k focus · h/l/i/m resize · f float · p launch · ? help</span>
   <span id="clock"></span>
 </header>
 
@@ -86,6 +87,31 @@
   </div></article>
 </section>
 </main>
+
+<div id="launch" hidden>
+  <div class="panel" role="dialog" aria-label="Launcher">
+    <label class="prompt"><span>launch</span><input id="lq" type="text" placeholder="type a project name…" autocomplete="off"></label>
+    <ul id="ll"></ul>
+  </div>
+</div>
+
+<div id="help" hidden>
+  <div class="panel" role="dialog" aria-label="Keyboard shortcuts">
+    <h3>keybindings</h3>
+    <dl>
+      <dt><kbd>1</kbd>–<kbd>4</kbd></dt><dd>switch workspace</dd>
+      <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>move focus between windows</dd>
+      <dt><kbd>Enter</kbd></dt><dd>swap focused window with the main one</dd>
+      <dt><kbd>h</kbd> <kbd>l</kbd></dt><dd>resize left / right</dd>
+      <dt><kbd>i</kbd> <kbd>m</kbd></dt><dd>resize up / down</dd>
+      <dt><kbd>f</kbd></dt><dd>toggle tiled and floating layout</dd>
+      <dt><kbd>/</kbd></dt><dd>search the page</dd>
+      <dt><kbd>p</kbd></dt><dd>launcher: open a project or link</dd>
+      <dt><kbd>?</kbd></dt><dd>show or hide this list</dd>
+      <dt><kbd>Esc</kbd></dt><dd>close any popup</dd>
+    </dl>
+  </div>
+</div>
 <script src="script.js"></script>
 </body>
 </html>

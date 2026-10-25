@@ -7,10 +7,11 @@ const wins = ws => [...ws.querySelectorAll('.win')];
 const focused = () => wins(wss[cur]).find(w => w.classList.contains('focus'));
 
 let z = 1;
-const modeBtn = document.getElementById('mode');
+const modeBtn = document.getElementById('mode'), ttl = document.getElementById('title');
 function focus(w) {
   document.querySelectorAll('.win.focus').forEach(x => x.classList.remove('focus'));
   w.classList.add('focus');
+  ttl.textContent = w.querySelector('h2').textContent;
   if (w.parentElement.classList.contains('floating')) w.style.zIndex = ++z;
 }
 function toggleFloat() {
@@ -33,8 +34,8 @@ function toggleFloat() {
 }
 function syncMode() {
   const on = wss[cur].classList.contains('floating');
-  modeBtn.textContent = 'floating: ' + (on ? 'on' : 'off');
-  modeBtn.classList.toggle('on', on);
+  modeBtn.textContent = on ? '><>' : '[]=';
+  modeBtn.title = on ? 'Layout: floating. Click for tiled (f)' : 'Layout: tiled. Click for floating (f)';
 }
 modeBtn.addEventListener('click', toggleFloat);
 function layout(ws) {
@@ -221,8 +222,51 @@ qi.addEventListener('keydown', e => {
   else if (e.key === 'Escape') { qi.value = ''; qi.blur(); }
 });
 
+// launcher + help
+const L = document.getElementById('launch'), lq = document.getElementById('lq'), ll = document.getElementById('ll'), help = document.getElementById('help');
+const apps = [...document.querySelectorAll('a.proj,.links a')].map(a => {
+  const b = a.querySelector('b'), s = a.querySelector('i,small');
+  return { name: b ? b.textContent : a.childNodes[0].textContent, sub: s ? s.textContent : '', href: a.href };
+});
+let lh = [], ls = 0;
+function lmark() { [...ll.children].forEach((li, i) => { li.classList.toggle('sel', i === ls); if (i === ls) li.scrollIntoView({ block: 'nearest' }); }); }
+function lrender() {
+  const t = lq.value.toLowerCase().split(/\s+/).filter(Boolean);
+  lh = apps.filter(a => t.every(x => (a.name + ' ' + a.sub).toLowerCase().includes(x)));
+  ll.replaceChildren();
+  lh.forEach(a => {
+    const li = document.createElement('li'), b = document.createElement('b'), s = document.createElement('small');
+    b.textContent = a.name; s.textContent = a.sub;
+    li.append(b, s);
+    li.addEventListener('click', () => launch(a));
+    ll.append(li);
+  });
+  if (!lh.length) { const li = document.createElement('li'); li.textContent = 'Nothing matches.'; ll.append(li); }
+  ls = 0; lmark();
+}
+function launch(a) {
+  L.hidden = true;
+  if (a.href.startsWith('mailto:')) location.href = a.href; else window.open(a.href, '_blank', 'noopener');
+}
+function openL() { help.hidden = true; L.hidden = false; lq.value = ''; lrender(); lq.focus(); }
+lq.addEventListener('input', lrender);
+lq.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (lh.length) { ls = (ls + (e.key === 'ArrowDown' ? 1 : lh.length - 1)) % lh.length; lmark(); }
+  } else if (e.key === 'Enter' && lh[ls]) launch(lh[ls]);
+  else if (e.key === 'Escape') L.hidden = true;
+});
+L.addEventListener('mousedown', e => { if (e.target === L) L.hidden = true; });
+help.addEventListener('mousedown', () => (help.hidden = true));
+
 addEventListener('keydown', e => {
+  if (e.key === 'Escape') help.hidden = true;
   if (e.target.matches('input')) return;
+  if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+    if (e.key === 'p') { e.preventDefault(); return openL(); }
+    if (e.key === '?') { L.hidden = true; return (help.hidden = !help.hidden); }
+  }
   if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); return qi.focus(); }
   if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); return qi.focus(); }
   if (!wide.matches || e.ctrlKey || e.metaKey || e.altKey) return;
