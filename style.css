@@ -99,3 +99,11 @@ a{color:inherit}
 #help dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.2rem;padding:.9rem;overflow:auto;font-size:.88rem}
 #help dt{white-space:nowrap}
 #help dd{color:var(--dim)}
+
+.term{font-family:'JetBrains Mono',monospace;line-height:1.5;background:var(--bg);cursor:text}
+#out div{white-space:pre-wrap;word-break:break-word}
+.line{display:flex;gap:.6rem}
+.ps{color:var(--ink);white-space:nowrap}
+#cmd{flex:1;min-width:0;background:none;border:0;color:#fff;font:inherit;outline:none;caret-color:var(--focus)}
+.t-dim{color:var(--dim)}.t-err{color:#f85149}
+.t-os{color:#ff6f91}.t-sh{color:#4ae36b}.t-kn{color:#b79cf5}.t-pk{color:#f25555}.t-up{color:#f1f27c}.t-ho{color:#f56ab8}.t-me{color:#3de079}

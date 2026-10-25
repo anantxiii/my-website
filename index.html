@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Anant Gupta · Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rubik:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,11 +15,12 @@
     <button data-ws="1">2 education</button>
     <button data-ws="2">3 projects</button>
     <button data-ws="3">4 youtube</button>
+    <button data-ws="4">5 terminal</button>
   </nav>
   <button id="mode" title="Layout: tiled. Click for floating (f)">[]=</button>
   <span id="title"></span>
   <div id="search"><input id="q" type="text" placeholder="search…  ( / )" aria-label="Search portfolio" autocomplete="off"><ul id="res" hidden></ul></div>
-  <span id="hint">1–4 switch · j/k focus · h/l/i/m resize · f float · p launch · ? help</span>
+  <span id="hint">1–5 switch · j/k focus · h/l/i/m resize · f float · p launch · ? help</span>
   <span id="clock"></span>
 </header>
 
@@ -29,7 +30,7 @@
     <h1>Anant Gupta</h1>
     <p class="lead">I build small, fast tools and take apart the big ones to see how they work.</p>
     <p>I'm a first-year Chemical Engineering student at BITS Pilani, Hyderabad, from Noida. Most of my free time goes into C, shell scripts and Linux: compiling my own window manager, terminal and launcher, then automating the whole setup so it rebuilds from one command.</p>
-    <p>This site works like that setup. Press <kbd>1</kbd> to <kbd>4</kbd> to switch workspace, <kbd>j</kbd>/<kbd>k</kbd> to change focus and <kbd>Enter</kbd> to swap a window into the main area. Press <kbd>f</kbd> to make the windows float, then drag them by their title bars and resize them from the bottom-right corner. In tiled mode, drag the dividers between windows, or press <kbd>h</kbd>/<kbd>l</kbd> for left/right and <kbd>i</kbd>/<kbd>m</kbd> for up/down. Press <kbd>/</kbd> to search.</p>
+    <p>This site works like that setup. Press <kbd>1</kbd> to <kbd>5</kbd> to switch workspace, <kbd>j</kbd>/<kbd>k</kbd> to change focus and <kbd>Enter</kbd> to swap a window into the main area. Press <kbd>f</kbd> to make the windows float, then drag them by their title bars and resize them from the bottom-right corner. In tiled mode, drag the dividers between windows, or press <kbd>h</kbd>/<kbd>l</kbd> for left/right and <kbd>i</kbd>/<kbd>m</kbd> for up/down. Press <kbd>/</kbd> to search, <kbd>p</kbd> to launch a project, and <kbd>?</kbd> at any time to see every keybinding.</p>
   </div></article>
   <article class="win"><h2>find me</h2><div class="body links">
     <a href="http://github.com/anantxiii/" target="_blank" rel="noopener">GitHub<small>anantxiii</small></a>
@@ -86,6 +87,20 @@
     <div><strong>Arch</strong><small>main focus</small></div>
   </div></article>
 </section>
+<section class="ws" id="ws4" hidden>
+  <article class="win"><h2>terminal</h2><div class="body term" id="term">
+    <div id="out"></div>
+    <label class="line"><span class="ps">~ λ</span><input id="cmd" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command"></label>
+  </div></article>
+  <article class="win"><h2>dotfiles</h2><div class="body">
+    <p class="lead">The config behind this setup.</p>
+    <div class="row"><div><b>dwm</b><small>Tiling window manager written in C. My main one.</small></div></div>
+    <div class="row"><div><b>alacritty</b><small>Terminal emulator written in Rust.</small></div></div>
+    <div class="row"><div><b>bash</b><small>My shell, set up with vi mode.</small></div></div>
+    <div class="row"><div><b>neovim</b><small>My editor. I picked it over vim for system clipboard support.</small></div></div>
+    <p style="margin-top:.8rem"><a class="cta" href="https://github.com/anantxiii/dotfiles" target="_blank" rel="noopener">Open the repo</a></p>
+  </div></article>
+</section>
 </main>
 
 <div id="launch" hidden>
@@ -99,7 +114,7 @@
   <div class="panel" role="dialog" aria-label="Keyboard shortcuts">
     <h3>keybindings</h3>
     <dl>
-      <dt><kbd>1</kbd>–<kbd>4</kbd></dt><dd>switch workspace</dd>
+      <dt><kbd>1</kbd>–<kbd>5</kbd></dt><dd>switch workspace</dd>
       <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>move focus between windows</dd>
       <dt><kbd>Enter</kbd></dt><dd>swap focused window with the main one</dd>
       <dt><kbd>h</kbd> <kbd>l</kbd></dt><dd>resize left / right</dd>
@@ -108,7 +123,7 @@
       <dt><kbd>/</kbd></dt><dd>search the page</dd>
       <dt><kbd>p</kbd></dt><dd>launcher: open a project or link</dd>
       <dt><kbd>?</kbd></dt><dd>show or hide this list</dd>
-      <dt><kbd>Esc</kbd></dt><dd>close any popup</dd>
+      <dt><kbd>Esc</kbd></dt><dd>close a popup, or leave the terminal prompt</dd>
     </dl>
   </div>
 </div>

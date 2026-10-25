@@ -260,6 +260,74 @@ lq.addEventListener('keydown', e => {
 L.addEventListener('mousedown', e => { if (e.target === L) L.hidden = true; });
 help.addEventListener('mousedown', () => (help.hidden = true));
 
+// terminal
+const out = document.getElementById('out'), cmd = document.getElementById('cmd'), termEl = document.getElementById('term');
+const KERNEL = '7.2.11-arch1-1';
+const say = (t, cls) => { const d = document.createElement('div'); if (cls) d.className = cls; d.textContent = t; out.append(d); return d; };
+const projects = [...document.querySelectorAll('a.proj b')].map(b => b.textContent);
+const FILES = {
+  'about.txt': ['Anant Gupta, Noida, India.', 'First-year Chemical Engineering student at BITS Pilani, Hyderabad.', 'I write C, C++, Python and shell, and I document my Linux fixes on YouTube.'],
+  'dotfiles/README.md': ['# Dotfiles', 'My config for the programs I use regularly.', '', 'dwm        tiling window manager written in C, my main one', 'alacritty  terminal emulator written in Rust', 'bash       shell, set up with vi mode', 'neovim     editor, picked over vim for system clipboard support']
+};
+const DIRS = { '': ['about.txt', 'projects/', 'dotfiles/'], projects: projects, dotfiles: ['.bashrc', '.config/', 'README.md'], 'dotfiles/.config': ['alacritty/', 'nvim/'] };
+const norm = p => (p || '').replace(/^~?\/?|\/$/g, '');
+function minfetch() {
+  [['t-os', 'OS:', 'Arch Linux'], ['t-sh', 'Shell:', 'bash'], ['t-kn', 'Kernel:', KERNEL], ['t-pk', 'Packages:', '525'],
+   ['t-up', 'Uptime:', '5 minutes'], ['t-ho', 'Host:', 'HP ProBook 440 G4'], ['t-me', 'Memory:', '232 MB/16671 MB']]
+    .forEach(([cls, k, v]) => say(k.padEnd(12) + v, cls));
+}
+const COMMANDS = {
+  help() {
+    [['help', 'show this list'], ['whoami', 'who is this'], ['ls [dir]', 'list files: projects, dotfiles'], ['cat <file>', 'read about.txt or dotfiles/README.md'],
+     ['open <name>', 'open a project or link, e.g. open dwm'], ['minfetch', 'system info'], ['clear', 'clear the screen']]
+      .forEach(([c, d]) => say(c.padEnd(14) + d));
+  },
+  whoami() { say('anant'); say('Anant Gupta, systems tinkerer.', 't-dim'); },
+  ls(a) {
+    const k = norm(a[0]), d = Object.hasOwn(DIRS, k) && DIRS[k];
+    d ? say(d.join('  ')) : say(`ls: cannot access '${a[0]}': No such file or directory`, 't-err');
+  },
+  cat(a) {
+    const f = Object.hasOwn(FILES, norm(a[0])) && FILES[norm(a[0])];
+    if (!a[0]) say('cat: missing file. Try: cat about.txt', 't-err');
+    else f ? f.forEach(l => say(l)) : say(`cat: ${a[0]}: No such file or directory`, 't-err');
+  },
+  open(a) {
+    const n = a.join(' ').toLowerCase();
+    const hit = n && (apps.find(x => x.name.toLowerCase() === n) || apps.find(x => x.name.toLowerCase().includes(n)));
+    if (!hit) return say(n ? `open: no project called '${n}'. Try: ls projects` : 'open: missing name. Try: open dwm', 't-err');
+    say('opening ' + hit.name + '…', 't-dim');
+    if (hit.href.startsWith('mailto:')) location.href = hit.href; else window.open(hit.href, '_blank', 'noopener');
+  },
+  minfetch,
+  neofetch() { say('bash: neofetch: command not found. Try minfetch.', 't-err'); },
+  clear() { out.replaceChildren(); },
+  echo(a) { say(a.join(' ')); },
+  sudo() { say('anant is not in the sudoers file. This incident will be reported.', 't-err'); },
+  exit() { say('There is no escape. Press Esc to hand the keyboard back to the page.', 't-dim'); }
+};
+const hist = []; let hi = 0;
+say('Type help to see what you can run. Press Esc to hand the keyboard back to the page.', 't-dim');
+cmd.addEventListener('keydown', e => {
+  if (e.key === 'Escape') cmd.blur();
+  else if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+    e.preventDefault();
+    hi = Math.min(hist.length, Math.max(0, hi + (e.key === 'ArrowUp' ? -1 : 1)));
+    cmd.value = hist[hi] || '';
+  } else if (e.key === 'Enter') {
+    const line = cmd.value.trim();
+    say('~ λ ' + line);
+    cmd.value = '';
+    if (line) {
+      hist.push(line); hi = hist.length;
+      const [name, ...args] = line.split(/\s+/);
+      if (Object.hasOwn(COMMANDS, name)) COMMANDS[name](args); else say(`bash: ${name}: command not found`, 't-err');
+    }
+    termEl.scrollTop = termEl.scrollHeight;
+  }
+});
+termEl.addEventListener('click', () => { if (!getSelection().toString()) cmd.focus(); });
+
 addEventListener('keydown', e => {
   if (e.key === 'Escape') help.hidden = true;
   if (e.target.matches('input')) return;
