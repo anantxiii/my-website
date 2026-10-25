@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anant Gupta · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="bar">
+  <nav id="tags" aria-label="Workspaces">
+    <button data-ws="0">1 home</button>
+    <button data-ws="1">2 education</button>
+    <button data-ws="2">3 projects</button>
+    <button data-ws="3">4 youtube</button>
+  </nav>
+  <span id="hint">press 1–4 to switch · j/k focus · enter zoom</span>
+  <span id="clock"></span>
+</header>
+
+<main id="desk">
+<section class="ws" id="ws0">
+  <article class="win"><h2>about</h2><div class="body">
+    <h1>Anant Gupta</h1>
+    <p class="lead">I build small, fast tools and take apart the big ones to see how they work.</p>
+    <p>I'm a first-year Chemical Engineering student at BITS Pilani, Hyderabad, from Noida. Most of my free time goes into C, shell scripts and Linux: compiling my own window manager, terminal and launcher, then automating the whole setup so it rebuilds from one command.</p>
+    <p>This site works like that setup. Press <kbd>1</kbd> to <kbd>4</kbd> to switch workspace, <kbd>j</kbd>/<kbd>k</kbd> to change focus and <kbd>Enter</kbd> to swap a window into the main area.</p>
+  </div></article>
+  <article class="win"><h2>find me</h2><div class="body links">
+    <a href="http://github.com/anantxiii/" target="_blank" rel="noopener">GitHub<small>anantxiii</small></a>
+    <a href="https://www.youtube.com/@anantgupta7916" target="_blank" rel="noopener">YouTube<small>@anantgupta7916</small></a>
+    <a href="mailto:anantxiii@gmail.com">Email<small>anantxiii@gmail.com</small></a>
+  </div></article>
+  <article class="win"><h2>status</h2><div class="body">
+    <p><b>Studying</b> B.E. Chemical Engineering, 2026–2030</p>
+    <p><b>Writing</b> C, C++, Python and shell</p>
+    <p><b>Running</b> Arch Linux, dwm, st, dmenu</p>
+    <p><b>Wins</b> 1st at a G20 hackathon, ₹10,000 seed grant</p>
+  </div></article>
+</section>
+
+<section class="ws" id="ws1" hidden>
+  <article class="win"><h2>education</h2><div class="body">
+    <div class="row"><div><b>BITS Pilani, Hyderabad Campus</b><small>B.E. Chemical Engineering</small></div><span class="pill">2026–2030</span></div>
+    <div class="row"><div><b>East Point School, Delhi</b><small>Class 12, CBSE</small></div><span class="pill">91.4%</span></div>
+    <div class="row"><div><b>Bal Bharati Public School, Noida</b><small>Class 10, CBSE</small></div><span class="pill">93.8%</span></div>
+  </div></article>
+  <article class="win"><h2>wins</h2><div class="body">
+    <div class="row"><div><b>1st place, G20 hackathon</b><small>Built a responsive G20 summit website from scratch in under 60 minutes, offline and with no references.</small></div></div>
+    <div class="row"><div><b>Project Exoshock</b><small>Embedded drowsiness-detection prototype to prevent driving accidents. Won several regional competitions and ₹10,000 in seed funding from the Government of India.</small></div></div>
+  </div></article>
+</section>
+
+<section class="ws" id="ws2" hidden>
+  <article class="win"><h2>systems &amp; unix</h2><div class="body grid">
+    <a class="proj" href="https://github.com/anantxiii/dotfiles" target="_blank" rel="noopener"><b>dotfiles</b><p>Bootstraps a complete CLI-first Arch Linux workspace from a single script.</p><i>Shell · Arch</i></a>
+    <a class="proj" href="https://github.com/anantxiii/dwm" target="_blank" rel="noopener"><b>dwm</b><p>Keyboard-driven tiling window manager in C, patched for layouts, tag rules and status bar hooks.</p><i>C · Suckless</i></a>
+    <a class="proj" href="https://github.com/anantxiii/st" target="_blank" rel="noopener"><b>st</b><p>Suckless terminal emulator built from source with patches for transparency, scrollback and fonts.</p><i>C · Suckless</i></a>
+    <a class="proj" href="https://gitlab.com/AnantGupta/dmenu" target="_blank" rel="noopener"><b>dmenu</b><p>Application launcher styled to match my desktop, with colours and fuzzy matching set at compile time.</p><i>C · Suckless</i></a>
+    <a class="proj" href="https://github.com/anantxiii/minfetch" target="_blank" rel="noopener"><b>minfetch</b><p>A fast system info tool and lightweight alternative to neofetch.</p><i>Shell · CLI</i></a>
+    <a class="proj" href="https://github.com/anantxiii/terminal-help" target="_blank" rel="noopener"><b>Terminal-Help</b><p>An interactive guide for people moving from GUI desktops to the terminal.</p><i>Docs · CLI</i></a>
+  </div></article>
+  <article class="win"><h2>applied logic</h2><div class="body">
+    <a class="proj" href="https://github.com/anantxiii/cricket-stats" target="_blank" rel="noopener"><b>Cricket Stats Engine</b><p>C++ app for scoreboards, player metrics and comparisons in local matches.</p><i>C++</i></a>
+    <a class="proj" href="https://github.com/anantxiii/school-talent-searcher" target="_blank" rel="noopener"><b>School Talent Searcher</b><p>C++ tool that helps mentors find students with specific skills across large cohorts.</p><i>C++</i></a>
+  </div></article>
+  <article class="win"><h2>web &amp; ai</h2><div class="body">
+    <a class="proj" href="https://github.com/anantxiii/atl-chatbot" target="_blank" rel="noopener"><b>ATL Voice Chatbot</b><p>Speaking FAQ bot that helps young students fix lab equipment in Atal Tinkering Labs.</p><i>Python · gTTS</i></a>
+    <a class="proj" href="https://github.com/anantxiii/non-profit" target="_blank" rel="noopener"><b>Non Profit Website</b><p>Web portal for a school social-change club to run outreach and volunteering.</p><i>Web</i></a>
+  </div></article>
+</section>
+
+<section class="ws" id="ws3" hidden>
+  <article class="win"><h2>youtube</h2><div class="body">
+    <p class="lead">Linux fixes, written down so the next person doesn't lose an evening to them.</p>
+    <p>My channel covers Arch Linux troubleshooting and desktop setup: VirtualBox kernel module rebuilds, compilation path fixes, picom compositor tweaks and Xorg display driver problems.</p>
+    <p><a class="cta" href="https://www.youtube.com/@anantgupta7916" target="_blank" rel="noopener">Watch the channel</a></p>
+  </div></article>
+  <article class="win"><h2>numbers</h2><div class="body stats">
+    <div><strong>20K+</strong><small>views across videos</small></div>
+    <div><strong>Arch</strong><small>main focus</small></div>
+  </div></article>
+</section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
