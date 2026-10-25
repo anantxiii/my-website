@@ -70,10 +70,65 @@ function setSplit(ws, r) {
   ws.style.setProperty('--mw', r / (1 - r) + 'fr');
   placeGutter(ws);
 }
-function placeGutter(ws) { ws._g.style.left = (ws.clientWidth - 12) * ws._r + 'px'; }
+function placeGutter(ws) {
+  const W = ws.clientWidth, H = ws.clientHeight, left = (W - 12) * ws._r + 12;
+  ws._g.style.left = left - 12 + 'px';
+  const S = ws._w.reduce((a, b) => a + b, 0), avail = H - 12 * (ws._w.length - 1);
+  let y = 0;
+  ws._rg.forEach((g, d) => {
+    y += avail * ws._w[d] / S;
+    Object.assign(g.style, { top: y + 12 * d + 'px', left: left + 'px', width: W - left + 'px' });
+  });
+}
+function applyRows(ws) {
+  ws.style.setProperty('--rows', ws._w.map(x => `minmax(0,${x.toFixed(3)}fr)`).join(' '));
+  placeGutter(ws);
+}
+function moveDivider(ws, d, delta) {
+  const w = ws._w;
+  if (d < 0 || d >= w.length - 1 || w[d] + delta < .3 || w[d + 1] - delta < .3) return false;
+  w[d] += delta; w[d + 1] -= delta;
+  applyRows(ws);
+  return true;
+}
+function resizeKey(k) {
+  const ws = wss[cur], f = focused();
+  if (ws.classList.contains('floating')) {
+    const s = { h: ['width', -40], l: ['width', 40], i: ['height', -40], m: ['height', 40] }[k];
+    const cur = s[0] === 'width' ? f.offsetWidth : f.offsetHeight;
+    f.style[s[0]] = Math.max(s[0] === 'width' ? 220 : 130, cur + s[1]) + 'px';
+  } else if (k === 'h' || k === 'l') setSplit(ws, ws._r + (k === 'l' ? .04 : -.04));
+  else {
+    const idx = wins(ws).indexOf(f), m = ws._w.length;
+    if (idx < 1 || m < 2) return;
+    const d = idx - 1 < m - 1 ? idx - 1 : idx - 2;
+    moveDivider(ws, d, k === 'm' ? .12 : -.12);
+  }
+}
 wss.forEach(ws => {
   const g = ws._g = document.createElement('div');
   ws._r = 1.35 / 2.35;
+  ws._w = Array(Math.max(wins(ws).length - 1, 1)).fill(1);
+  ws._rg = [];
+  for (let d = 0; d < ws._w.length - 1; d++) {
+    const rg = document.createElement('div');
+    rg.className = 'rgutter';
+    rg.title = 'Drag to resize (i / m)';
+    ws.append(rg);
+    ws._rg.push(rg);
+    rg.addEventListener('pointerdown', e => {
+      rg.setPointerCapture(e.pointerId);
+      rg.classList.add('drag');
+      let y = e.clientY;
+      const mv = ev => {
+        const per = (ws.clientHeight - 12 * (ws._w.length - 1)) / ws._w.reduce((a, b) => a + b, 0);
+        if (moveDivider(ws, d, (ev.clientY - y) / per)) y = ev.clientY;
+      };
+      const up = () => { rg.classList.remove('drag'); rg.removeEventListener('pointermove', mv); rg.removeEventListener('pointerup', up); };
+      rg.addEventListener('pointermove', mv);
+      rg.addEventListener('pointerup', up);
+    });
+  }
   g.className = 'gutter';
   g.title = 'Drag to resize (h / l)';
   ws.append(g);
@@ -175,7 +230,7 @@ addEventListener('keydown', e => {
   if (n >= 1 && n <= tags.length) return go(n - 1);
   const list = wins(wss[cur]), i = list.indexOf(focused());
   if (e.key === 'f') return toggleFloat();
-  if ((e.key === 'h' || e.key === 'l') && !wss[cur].classList.contains('floating')) return setSplit(wss[cur], wss[cur]._r + (e.key === 'l' ? .04 : -.04));
+  if ('hlim'.includes(e.key) && e.key.length === 1) return resizeKey(e.key);
   if (e.key === 'j') focus(list[(i + 1) % list.length]);
   if (e.key === 'k') focus(list[(i - 1 + list.length) % list.length]);
   if (e.key === 'Enter' && !e.target.closest('a,button')) zoom();

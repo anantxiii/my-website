@@ -60,7 +60,7 @@ a{color:inherit}
  html,body{height:100%;overflow:hidden}
  body{display:flex;flex-direction:column}
  #desk{flex:1;min-height:0}
- .ws{height:100%;display:grid;grid-template-columns:minmax(0,var(--mw,1.35fr)) minmax(0,1fr);grid-template-rows:repeat(var(--n,1),minmax(0,1fr))}
+ .ws{height:100%;display:grid;grid-template-columns:minmax(0,var(--mw,1.35fr)) minmax(0,1fr);grid-template-rows:var(--rows,repeat(var(--n,1),minmax(0,1fr)))}
  .ws[hidden]{display:none}
  .ws .win:first-child{grid-row:1/span var(--n,1)}
  .ws.solo{grid-template-columns:1fr}
@@ -70,7 +70,9 @@ a{color:inherit}
  .ws.floating .win::-webkit-resizer{background:linear-gradient(135deg,transparent 50%,var(--focus) 50%)}
  .gutter{display:none;position:absolute;top:0;bottom:0;width:12px;cursor:col-resize;z-index:5;border-radius:3px;touch-action:none;transition:background .15s}
  .ws:not(.floating):not(.solo) .gutter{display:block}
- .gutter:hover,.gutter.drag{background:rgba(57,211,83,.35)}
+ .rgutter{display:none;position:absolute;height:12px;cursor:row-resize;z-index:5;border-radius:3px;touch-action:none;transition:background .15s}
+ .ws:not(.floating):not(.solo) .rgutter{display:block}
+ .rgutter:hover,.rgutter.drag,.gutter:hover,.gutter.drag{background:rgba(57,211,83,.35)}
  .ws.floating .win h2{cursor:grab;user-select:none;touch-action:none}
  .ws.floating .win h2:active{cursor:grabbing}
 }
