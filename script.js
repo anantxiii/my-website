@@ -273,13 +273,13 @@ const DIRS = { '': ['about.txt', 'projects/', 'dotfiles/'], projects: projects, 
 const norm = p => (p || '').replace(/^~?\/?|\/$/g, '');
 function minfetch() {
   [['t-os', 'OS:', 'Arch Linux'], ['t-sh', 'Shell:', 'bash'], ['t-kn', 'Kernel:', KERNEL], ['t-pk', 'Packages:', '525'],
-   ['t-up', 'Uptime:', '5 minutes'], ['t-ho', 'Host:', 'HP ProBook 440 G4'], ['t-me', 'Memory:', '232 MB/16671 MB']]
+  ['t-up', 'Uptime:', '5 minutes'], ['t-ho', 'Host:', 'HP ProBook 440 G4'], ['t-me', 'Memory:', '232 MB/16671 MB']]
     .forEach(([cls, k, v]) => say(k.padEnd(12) + v, cls));
 }
 const COMMANDS = {
   help() {
     [['help', 'show this list'], ['whoami', 'who is this'], ['ls [dir]', 'list files: projects, dotfiles'], ['cat <file>', 'read about.txt or dotfiles/README.md'],
-     ['open <name>', 'open a project or link, e.g. open dwm'], ['minfetch', 'system info'], ['clear', 'clear the screen']]
+    ['open <name>', 'open a project or link, e.g. open dwm'], ['minfetch', 'system info'], ['clear', 'clear the screen']]
       .forEach(([c, d]) => say(c.padEnd(14) + d));
   },
   whoami() { say('anant'); say('Anant Gupta, systems tinkerer.', 't-dim'); },

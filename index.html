@@ -1,132 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anant Gupta · Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rubik:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anant Gupta · Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rubik:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header id="bar">
-  <nav id="tags" aria-label="Workspaces">
-    <button data-ws="0">1 home</button>
-    <button data-ws="1">2 education</button>
-    <button data-ws="2">3 projects</button>
-    <button data-ws="3">4 youtube</button>
-    <button data-ws="4">5 terminal</button>
-  </nav>
-  <button id="mode" title="Layout: tiled. Click for floating (f)">[]=</button>
-  <span id="title"></span>
-  <div id="search"><input id="q" type="text" placeholder="search…  ( / )" aria-label="Search portfolio" autocomplete="off"><ul id="res" hidden></ul></div>
-  <span id="hint">1–5 switch · j/k focus · h/l/i/m resize · f float · p launch · ? help</span>
-  <span id="clock"></span>
-</header>
+  <header id="bar">
+    <nav id="tags" aria-label="Workspaces">
+      <button data-ws="0">1 home</button>
+      <button data-ws="1">2 education</button>
+      <button data-ws="2">3 projects</button>
+      <button data-ws="3">4 youtube</button>
+      <button data-ws="4">5 terminal</button>
+    </nav>
+    <button id="mode" title="Layout: tiled. Click for floating (f)">[]=</button>
+    <span id="title"></span>
+    <div id="search"><input id="q" type="text" placeholder="search…  ( / )" aria-label="Search portfolio"
+        autocomplete="off">
+      <ul id="res" hidden></ul>
+    </div>
+    <span id="hint">1–5 switch · j/k focus · h/l/i/m resize · f float · p launch · ? help</span>
+    <span id="clock"></span>
+  </header>
 
-<main id="desk">
-<section class="ws" id="ws0">
-  <article class="win"><h2>about</h2><div class="body">
-    <h1>Anant Gupta</h1>
-    <p class="lead">I build small, fast tools and take apart the big ones to see how they work.</p>
-    <p>I'm a first-year Chemical Engineering student at BITS Pilani, Hyderabad, from Noida. Most of my free time goes into C, shell scripts and Linux: compiling my own window manager, terminal and launcher, then automating the whole setup so it rebuilds from one command.</p>
-    <p>This site works like that setup. Press <kbd>1</kbd> to <kbd>5</kbd> to switch workspace, <kbd>j</kbd>/<kbd>k</kbd> to change focus and <kbd>Enter</kbd> to swap a window into the main area. Press <kbd>f</kbd> to make the windows float, then drag them by their title bars and resize them from the bottom-right corner. In tiled mode, drag the dividers between windows, or press <kbd>h</kbd>/<kbd>l</kbd> for left/right and <kbd>i</kbd>/<kbd>m</kbd> for up/down. Press <kbd>/</kbd> to search, <kbd>p</kbd> to launch a project, and <kbd>?</kbd> at any time to see every keybinding.</p>
-  </div></article>
-  <article class="win"><h2>find me</h2><div class="body links">
-    <a href="http://github.com/anantxiii/" target="_blank" rel="noopener">GitHub<small>anantxiii</small></a>
-    <a href="https://www.youtube.com/@anantgupta7916" target="_blank" rel="noopener">YouTube<small>@anantgupta7916</small></a>
-    <a href="mailto:anantxiii@gmail.com">Email<small>anantxiii@gmail.com</small></a>
-  </div></article>
-  <article class="win"><h2>status</h2><div class="body">
-    <p><b>Studying</b> B.E. Chemical Engineering, 2026–2030</p>
-    <p><b>Writing</b> C, C++, Python and shell</p>
-    <p><b>Running</b> Arch Linux, dwm, st, dmenu</p>
-    <p><b>Wins</b> 1st at a G20 hackathon, ₹10,000 seed grant</p>
-  </div></article>
-</section>
+  <main id="desk">
+    <section class="ws" id="ws0">
+      <article class="win">
+        <h2>about</h2>
+        <div class="body">
+          <h1>Anant Gupta</h1>
+          <p class="lead">I build small, fast tools and take apart the big ones to see how they work.</p>
+          <p>I'm a first-year Chemical Engineering student at BITS Pilani, Hyderabad, from Noida. Most of my free time
+            goes into C, shell scripts and Linux: compiling my own window manager, terminal and launcher, then
+            automating the whole setup so it rebuilds from one command.</p>
+          <p>This site works like that setup. Press <kbd>1</kbd> to <kbd>5</kbd> to switch workspace,
+            <kbd>j</kbd>/<kbd>k</kbd> to change focus and <kbd>Enter</kbd> to swap a window into the main area. Press
+            <kbd>f</kbd> to make the windows float, then drag them by their title bars and resize them from the
+            bottom-right corner. In tiled mode, drag the dividers between windows, or press <kbd>h</kbd>/<kbd>l</kbd>
+            for left/right and <kbd>i</kbd>/<kbd>m</kbd> for up/down. Press <kbd>/</kbd> to search, <kbd>p</kbd> to
+            launch a project, and <kbd>?</kbd> at any time to see every keybinding.</p>
+        </div>
+      </article>
+      <article class="win">
+        <h2>find me</h2>
+        <div class="body links">
+          <a href="http://github.com/anantxiii/" target="_blank" rel="noopener">GitHub<small>anantxiii</small></a>
+          <a href="https://www.youtube.com/@anantgupta7916" target="_blank"
+            rel="noopener">YouTube<small>@anantgupta7916</small></a>
+          <a href="mailto:anantxiii@gmail.com">Email<small>anantxiii@gmail.com</small></a>
+        </div>
+      </article>
+      <article class="win">
+        <h2>status</h2>
+        <div class="body">
+          <p><b>Studying</b> B.E. Chemical Engineering, 2026–2030</p>
+          <p><b>Writing</b> C, C++, Python and shell</p>
+          <p><b>Running</b> Arch Linux, dwm, st, dmenu</p>
+          <p><b>Wins</b> 1st at a G20 hackathon, ₹10,000 seed grant</p>
+        </div>
+      </article>
+    </section>
 
-<section class="ws" id="ws1" hidden>
-  <article class="win"><h2>education</h2><div class="body">
-    <div class="row"><div><b>BITS Pilani, Hyderabad Campus</b><small>B.E. Chemical Engineering</small></div><span class="pill">2026–2030</span></div>
-    <div class="row"><div><b>East Point School, Delhi</b><small>Class 12, CBSE</small></div><span class="pill">91.4%</span></div>
-    <div class="row"><div><b>Bal Bharati Public School, Noida</b><small>Class 10, CBSE</small></div><span class="pill">93.8%</span></div>
-  </div></article>
-  <article class="win"><h2>wins</h2><div class="body">
-    <div class="row"><div><b>1st place, G20 hackathon</b><small>Built a responsive G20 summit website from scratch in under 60 minutes, offline and with no references.</small></div></div>
-    <div class="row"><div><b>Project Exoshock</b><small>Embedded drowsiness-detection prototype to prevent driving accidents. Won several regional competitions and ₹10,000 in seed funding from the Government of India.</small></div></div>
-  </div></article>
-</section>
+    <section class="ws" id="ws1" hidden>
+      <article class="win">
+        <h2>education</h2>
+        <div class="body">
+          <div class="row">
+            <div><b>BITS Pilani, Hyderabad Campus</b><small>B.E. Chemical Engineering</small></div><span
+              class="pill">2026–2030</span>
+          </div>
+          <div class="row">
+            <div><b>East Point School, Delhi</b><small>Class 12, CBSE</small></div><span class="pill">91.4%</span>
+          </div>
+          <div class="row">
+            <div><b>Bal Bharati Public School, Noida</b><small>Class 10, CBSE</small></div><span
+              class="pill">93.8%</span>
+          </div>
+        </div>
+      </article>
+      <article class="win">
+        <h2>wins</h2>
+        <div class="body">
+          <div class="row">
+            <div><b>1st place, G20 hackathon</b><small>Built a responsive G20 summit website from scratch in under 60
+                minutes, offline and with no references.</small></div>
+          </div>
+          <div class="row">
+            <div><b>Project Exoshock</b><small>Embedded drowsiness-detection prototype to prevent driving accidents. Won
+                several regional competitions and ₹10,000 in seed funding from the Government of India.</small></div>
+          </div>
+        </div>
+      </article>
+    </section>
 
-<section class="ws" id="ws2" hidden>
-  <article class="win"><h2>systems &amp; unix</h2><div class="body grid">
-    <a class="proj" href="https://github.com/anantxiii/dotfiles" target="_blank" rel="noopener"><b>dotfiles</b><p>Bootstraps a complete CLI-first Arch Linux workspace from a single script.</p><i>Shell · Arch</i></a>
-    <a class="proj" href="https://github.com/anantxiii/dwm" target="_blank" rel="noopener"><b>dwm</b><p>Keyboard-driven tiling window manager in C, patched for layouts, tag rules and status bar hooks.</p><i>C · Suckless</i></a>
-    <a class="proj" href="https://github.com/anantxiii/st" target="_blank" rel="noopener"><b>st</b><p>Suckless terminal emulator built from source with patches for transparency, scrollback and fonts.</p><i>C · Suckless</i></a>
-    <a class="proj" href="https://gitlab.com/AnantGupta/dmenu" target="_blank" rel="noopener"><b>dmenu</b><p>Application launcher styled to match my desktop, with colours and fuzzy matching set at compile time.</p><i>C · Suckless</i></a>
-    <a class="proj" href="https://github.com/anantxiii/minfetch" target="_blank" rel="noopener"><b>minfetch</b><p>A fast system info tool and lightweight alternative to neofetch.</p><i>Shell · CLI</i></a>
-    <a class="proj" href="https://github.com/anantxiii/terminal-help" target="_blank" rel="noopener"><b>Terminal-Help</b><p>An interactive guide for people moving from GUI desktops to the terminal.</p><i>Docs · CLI</i></a>
-  </div></article>
-  <article class="win"><h2>applied logic</h2><div class="body">
-    <a class="proj" href="https://github.com/anantxiii/cricket-stats" target="_blank" rel="noopener"><b>Cricket Stats Engine</b><p>C++ app for scoreboards, player metrics and comparisons in local matches.</p><i>C++</i></a>
-    <a class="proj" href="https://github.com/anantxiii/school-talent-searcher" target="_blank" rel="noopener"><b>School Talent Searcher</b><p>C++ tool that helps mentors find students with specific skills across large cohorts.</p><i>C++</i></a>
-  </div></article>
-  <article class="win"><h2>web &amp; ai</h2><div class="body">
-    <a class="proj" href="https://github.com/anantxiii/atl-chatbot" target="_blank" rel="noopener"><b>ATL Voice Chatbot</b><p>Speaking FAQ bot that helps young students fix lab equipment in Atal Tinkering Labs.</p><i>Python · gTTS</i></a>
-    <a class="proj" href="https://github.com/anantxiii/non-profit" target="_blank" rel="noopener"><b>Non Profit Website</b><p>Web portal for a school social-change club to run outreach and volunteering.</p><i>Web</i></a>
-  </div></article>
-</section>
+    <section class="ws" id="ws2" hidden>
+      <article class="win">
+        <h2>systems &amp; unix</h2>
+        <div class="body grid">
+          <a class="proj" href="https://github.com/anantxiii/dotfiles" target="_blank" rel="noopener"><b>dotfiles</b>
+            <p>Bootstraps a complete CLI-first Arch Linux workspace from a single script.</p><i>Shell · Arch</i>
+          </a>
+          <a class="proj" href="https://github.com/anantxiii/dwm" target="_blank" rel="noopener"><b>dwm</b>
+            <p>Keyboard-driven tiling window manager in C, patched for layouts, tag rules and status bar hooks.</p><i>C
+              · Suckless</i>
+          </a>
+          <a class="proj" href="https://github.com/anantxiii/st" target="_blank" rel="noopener"><b>st</b>
+            <p>Suckless terminal emulator built from source with patches for transparency, scrollback and fonts.</p><i>C
+              · Suckless</i>
+          </a>
+          <a class="proj" href="https://gitlab.com/AnantGupta/dmenu" target="_blank" rel="noopener"><b>dmenu</b>
+            <p>Application launcher styled to match my desktop, with colours and fuzzy matching set at compile time.</p>
+            <i>C · Suckless</i>
+          </a>
+          <a class="proj" href="https://github.com/anantxiii/minfetch" target="_blank" rel="noopener"><b>minfetch</b>
+            <p>A fast system info tool and lightweight alternative to neofetch.</p><i>Shell · CLI</i>
+          </a>
+          <a class="proj" href="https://github.com/anantxiii/terminal-help" target="_blank"
+            rel="noopener"><b>Terminal-Help</b>
+            <p>An interactive guide for people moving from GUI desktops to the terminal.</p><i>Docs · CLI</i>
+          </a>
+        </div>
+      </article>
+      <article class="win">
+        <h2>applied logic</h2>
+        <div class="body">
+          <a class="proj" href="https://github.com/anantxiii/cricket-stats" target="_blank" rel="noopener"><b>Cricket
+              Stats Engine</b>
+            <p>C++ app for scoreboards, player metrics and comparisons in local matches.</p><i>C++</i>
+          </a>
+          <a class="proj" href="https://github.com/anantxiii/school-talent-searcher" target="_blank"
+            rel="noopener"><b>School Talent Searcher</b>
+            <p>C++ tool that helps mentors find students with specific skills across large cohorts.</p><i>C++</i>
+          </a>
+        </div>
+      </article>
+      <article class="win">
+        <h2>web &amp; ai</h2>
+        <div class="body">
+          <a class="proj" href="https://github.com/anantxiii/atl-chatbot" target="_blank" rel="noopener"><b>ATL Voice
+              Chatbot</b>
+            <p>Speaking FAQ bot that helps young students fix lab equipment in Atal Tinkering Labs.</p><i>Python ·
+              gTTS</i>
+          </a>
+          <a class="proj" href="https://github.com/anantxiii/non-profit" target="_blank" rel="noopener"><b>Non Profit
+              Website</b>
+            <p>Web portal for a school social-change club to run outreach and volunteering.</p><i>Web</i>
+          </a>
+        </div>
+      </article>
+    </section>
 
-<section class="ws" id="ws3" hidden>
-  <article class="win"><h2>youtube</h2><div class="body">
-    <p class="lead">Linux fixes, written down so the next person doesn't lose an evening to them.</p>
-    <p>My channel covers Arch Linux troubleshooting and desktop setup: VirtualBox kernel module rebuilds, compilation path fixes, picom compositor tweaks and Xorg display driver problems.</p>
-    <p><a class="cta" href="https://www.youtube.com/@anantgupta7916" target="_blank" rel="noopener">Watch the channel</a></p>
-  </div></article>
-  <article class="win"><h2>numbers</h2><div class="body stats">
-    <div><strong>20K+</strong><small>views across videos</small></div>
-    <div><strong>Arch</strong><small>main focus</small></div>
-  </div></article>
-</section>
-<section class="ws" id="ws4" hidden>
-  <article class="win"><h2>terminal</h2><div class="body term" id="term">
-    <div id="out"></div>
-    <label class="line"><span class="ps">~ λ</span><input id="cmd" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command"></label>
-  </div></article>
-  <article class="win"><h2>dotfiles</h2><div class="body">
-    <p class="lead">The config behind this setup.</p>
-    <div class="row"><div><b>dwm</b><small>Tiling window manager written in C. My main one.</small></div></div>
-    <div class="row"><div><b>alacritty</b><small>Terminal emulator written in Rust.</small></div></div>
-    <div class="row"><div><b>bash</b><small>My shell, set up with vi mode.</small></div></div>
-    <div class="row"><div><b>neovim</b><small>My editor. I picked it over vim for system clipboard support.</small></div></div>
-    <p style="margin-top:.8rem"><a class="cta" href="https://github.com/anantxiii/dotfiles" target="_blank" rel="noopener">Open the repo</a></p>
-  </div></article>
-</section>
-</main>
+    <section class="ws" id="ws3" hidden>
+      <article class="win">
+        <h2>youtube</h2>
+        <div class="body">
+          <p class="lead">Linux fixes, written down so the next person doesn't lose an evening to them.</p>
+          <p>My channel covers Arch Linux troubleshooting and desktop setup: VirtualBox kernel module rebuilds,
+            compilation path fixes, picom compositor tweaks and Xorg display driver problems.</p>
+          <p><a class="cta" href="https://www.youtube.com/@anantgupta7916" target="_blank" rel="noopener">Watch the
+              channel</a></p>
+        </div>
+      </article>
+      <article class="win">
+        <h2>numbers</h2>
+        <div class="body stats">
+          <div><strong>20K+</strong><small>views across videos</small></div>
+          <div><strong>Arch</strong><small>main focus</small></div>
+        </div>
+      </article>
+    </section>
+    <section class="ws" id="ws4" hidden>
+      <article class="win">
+        <h2>terminal</h2>
+        <div class="body term" id="term">
+          <div id="out"></div>
+          <label class="line"><span class="ps">~ λ</span><input id="cmd" type="text" autocomplete="off"
+              autocapitalize="off" spellcheck="false" aria-label="Terminal command"></label>
+        </div>
+      </article>
+      <article class="win">
+        <h2>dotfiles</h2>
+        <div class="body">
+          <p class="lead">The config behind this setup.</p>
+          <div class="row">
+            <div><b>dwm</b><small>Tiling window manager written in C. My main one.</small></div>
+          </div>
+          <div class="row">
+            <div><b>alacritty</b><small>Terminal emulator written in Rust.</small></div>
+          </div>
+          <div class="row">
+            <div><b>bash</b><small>My shell, set up with vi mode.</small></div>
+          </div>
+          <div class="row">
+            <div><b>neovim</b><small>My editor. I picked it over vim for system clipboard support.</small></div>
+          </div>
+          <p style="margin-top:.8rem"><a class="cta" href="https://github.com/anantxiii/dotfiles" target="_blank"
+              rel="noopener">Open the repo</a></p>
+        </div>
+      </article>
+    </section>
+  </main>
 
-<div id="launch" hidden>
-  <div class="panel" role="dialog" aria-label="Launcher">
-    <label class="prompt"><span>launch</span><input id="lq" type="text" placeholder="type a project name…" autocomplete="off"></label>
-    <ul id="ll"></ul>
+  <div id="launch" hidden>
+    <div class="panel" role="dialog" aria-label="Launcher">
+      <label class="prompt"><span>launch</span><input id="lq" type="text" placeholder="type a project name…"
+          autocomplete="off"></label>
+      <ul id="ll"></ul>
+    </div>
   </div>
-</div>
 
-<div id="help" hidden>
-  <div class="panel" role="dialog" aria-label="Keyboard shortcuts">
-    <h3>keybindings</h3>
-    <dl>
-      <dt><kbd>1</kbd>–<kbd>5</kbd></dt><dd>switch workspace</dd>
-      <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>move focus between windows</dd>
-      <dt><kbd>Enter</kbd></dt><dd>swap focused window with the main one</dd>
-      <dt><kbd>h</kbd> <kbd>l</kbd></dt><dd>resize left / right</dd>
-      <dt><kbd>i</kbd> <kbd>m</kbd></dt><dd>resize up / down</dd>
-      <dt><kbd>f</kbd></dt><dd>toggle tiled and floating layout</dd>
-      <dt><kbd>/</kbd></dt><dd>search the page</dd>
-      <dt><kbd>p</kbd></dt><dd>launcher: open a project or link</dd>
-      <dt><kbd>?</kbd></dt><dd>show or hide this list</dd>
-      <dt><kbd>Esc</kbd></dt><dd>close a popup, or leave the terminal prompt</dd>
-    </dl>
+  <div id="help" hidden>
+    <div class="panel" role="dialog" aria-label="Keyboard shortcuts">
+      <h3>keybindings</h3>
+      <dl>
+        <dt><kbd>1</kbd>–<kbd>5</kbd></dt>
+        <dd>switch workspace</dd>
+        <dt><kbd>j</kbd> <kbd>k</kbd></dt>
+        <dd>move focus between windows</dd>
+        <dt><kbd>Enter</kbd></dt>
+        <dd>swap focused window with the main one</dd>
+        <dt><kbd>h</kbd> <kbd>l</kbd></dt>
+        <dd>resize left / right</dd>
+        <dt><kbd>i</kbd> <kbd>m</kbd></dt>
+        <dd>resize up / down</dd>
+        <dt><kbd>f</kbd></dt>
+        <dd>toggle tiled and floating layout</dd>
+        <dt><kbd>/</kbd></dt>
+        <dd>search the page</dd>
+        <dt><kbd>p</kbd></dt>
+        <dd>launcher: open a project or link</dd>
+        <dt><kbd>?</kbd></dt>
+        <dd>show or hide this list</dd>
+        <dt><kbd>Esc</kbd></dt>
+        <dd>close a popup, or leave the terminal prompt</dd>
+      </dl>
+    </div>
   </div>
-</div>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
